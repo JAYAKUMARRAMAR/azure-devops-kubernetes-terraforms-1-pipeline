@@ -32,9 +32,9 @@ stages:
     environment: QA
   dependsOn: Build
   jobs:
-   - job: QADeployJob
-     steps:
-     - bash: echo (environment)DeployJob
+  - job: QADeployJob
+    steps:
+    - bash: echo $(environment)DeployJob
 - stage: ProdDeploy
   dependsOn: 
   - DevDeploy
