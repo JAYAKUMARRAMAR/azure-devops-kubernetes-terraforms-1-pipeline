@@ -28,7 +28,7 @@ steps:
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connections'
     ensureBackend: true
-    backendAzureRmResourceGroupName: 'terraform-backend-rg'
+    backendAzureRmResourceGroupName: 'kubernetes_dev'
     backendAzureRmResourceGroupLocation: 'westeurope'
     backendAzureRmStorageAccountName: 'storageacctjayaxyz'
     backendAzureRmContainerName: 'storageacctjayaxyz'
