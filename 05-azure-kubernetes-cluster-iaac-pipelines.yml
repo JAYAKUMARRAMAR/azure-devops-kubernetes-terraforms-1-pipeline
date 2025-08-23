@@ -16,29 +16,29 @@ steps:
   inputs:
     secureFile: 'azure_rsa.pub'
 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
-    backendServiceArm: 'azure-resource-manager-service-connections'
-    backendAzureRmResourceGroupName: 'terraform-backend-rg'
-    backendAzureRmStorageAccountName: 'storageacctjayaxyz'
-    backendAzureRmContainerName: 'storageacctjayaxyz'
-    backendAzureRmKey: 'kubernetes-dev.tfstate'
-
-# - task: TerraformCLI@2
+# - task: TerraformTask@5
 #   inputs:
+#     provider: 'azurerm'
 #     command: 'init'
 #     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
 #     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
-#     backendType: 'azurerm'
 #     backendServiceArm: 'azure-resource-manager-service-connections'
-#     ensureBackend: true
 #     backendAzureRmResourceGroupName: 'terraform-backend-rg'
-#     backendAzureRmResourceGroupLocation: 'westeurope'
 #     backendAzureRmStorageAccountName: 'storageacctjayaxyz'
 #     backendAzureRmContainerName: 'storageacctjayaxyz'
 #     backendAzureRmKey: 'kubernetes-dev.tfstate'
-#     allowTelemetryCollection: true
+
+- task: TerraformCLI@2
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-manager-service-connections'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'terraform-backend-rg'
+    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmStorageAccountName: 'storageacctjayaxyz'
+    backendAzureRmContainerName: 'storageacctjayaxyz'
+    backendAzureRmKey: 'kubernetes-dev.tfstate'
+    allowTelemetryCollection: true
