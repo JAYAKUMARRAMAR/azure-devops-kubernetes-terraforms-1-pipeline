@@ -30,8 +30,8 @@ steps:
     ensureBackend: true
     backendAzureRmResourceGroupName: 'kubernetes_dev'
     backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'storageacctjayaxyz'
-    backendAzureRmContainerName: 'storageacctjayaxyz'
+    backendAzureRmStorageAccountName: 'storageacctjaya'
+    backendAzureRmContainerName: 'storageacctjayacontainer'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: true
 
